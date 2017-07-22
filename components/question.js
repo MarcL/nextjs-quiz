@@ -1,6 +1,11 @@
-export default ({title, questions}) => (
+import QuestionAnswerContainer from './questionAnswerContainer';
+
+export default ({question, onAnswer}) => (
     <div className="question">
-        <h3>Question Title</h3>
-        <p>TODO: Question answers</p>
+        <h3>{question.title}</h3>
+        <QuestionAnswerContainer
+            question={question}
+            onAnswer={onAnswer}
+        />
     </div>
 );

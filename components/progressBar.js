@@ -42,9 +42,9 @@ class ProgressBar extends React.Component {
                     aria-valuemax="100"
                     style={{width: styleWidth}}
                 >
-                    <div className="marks">
+                    {/*<div className="marks">
                         {this.renderMarks()}
-                    </div>
+                    </div>*/}
                 </div>
             </div>
         );

@@ -8,11 +8,19 @@ export default class extends React.Component {
             questions: [
                 {
                     title: 'Question 1',
-                    answers: []
+                    answers: [
+                        'answer 1',
+                        'answer 2',
+                        'answer 3'
+                    ]
                 },
                 {
                     title: 'Question 2',
-                    answers: []
+                    answers: [
+                        'answer 1',
+                        'answer 2',
+                        'answer 3'
+                    ]
                 }
             ]
         };
