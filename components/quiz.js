@@ -26,7 +26,7 @@ class Quiz extends React.Component {
         const currentQuestion = questions[currentQuestionIndex - 1];
 
         return(
-            <div className="quiz">
+            <div>
                 <Progress current={currentQuestionIndex} total={totalQuestions} />
                 <Question question={currentQuestion} onAnswer={this.handleAnswer} />
             </div>
@@ -40,6 +40,7 @@ class Quiz extends React.Component {
             </div>
         );
     }
+
     render() {
         const {title, questions} = this.props;
         const totalQuestions = questions.length;
@@ -50,12 +51,14 @@ class Quiz extends React.Component {
             ? this.renderEndScreen()
             : this.renderQuiz(currentQuestionIndex, totalQuestions);
 
-        return (<div>
-            <h2>{title}</h2>
+        return (
             <div className="quiz">
-                {renderComponent}
+                <h2 className="quiz-title">{title}</h2>
+                <div>
+                    {renderComponent}
+                </div>
             </div>
-        </div>);
+        );
     }
 }
 
