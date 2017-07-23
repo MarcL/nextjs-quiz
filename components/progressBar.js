@@ -31,26 +31,39 @@ class ProgressBar extends React.Component {
 
         const currentValue = ((current - 1) / total) * 100;
         const styleWidth = `${currentValue}%`;
+        console.log(styleWidth);
 
         return (
-            <div className="progress">
+            <div>
                 <div
-                    className="progress-bar progress-bar-info"
+                    className="progress"
                     role="progressbar"
                     aria-valuenow={currentValue}
                     aria-valuemin="0"
                     aria-valuemax="100"
                     style={{width: styleWidth}}
                 >
-                    {/*<div className="marks">
-                        {this.renderMarks()}
-                    </div>*/}
                 </div>
+                <style jsx>{`
+                .progress {
+                    background: #eee;
+                    border-radius: 13px;
+                    height: 20px;
+                    width: 300px;
+                    padding: 0px;
+                }
+                .progress:after {
+                    content: '';
+                    display: block;
+                    background: orange;
+                    width: 50%;
+                    height: 100%;
+                    border-radius: 9px;
+                }
+                `}</style>
             </div>
         );
     }
 };
-
-// style="width:0%">
 
 export default ProgressBar;
