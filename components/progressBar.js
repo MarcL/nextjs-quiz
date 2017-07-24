@@ -1,7 +1,7 @@
 import React from 'react';
 
 const ProgressBarMark = ({filled}) => {
-    const className = filled ? 'fa fa-circle filled' : 'fa fa-circle';
+    const className = filled ? 'fa fa-circle fa-2x filled' : 'fa fa-2x fa-circle';
     return (
         <span className="mark">
             <i className={className} aria-hidden="true"></i>
@@ -27,40 +27,18 @@ class ProgressBar extends React.Component {
     }
 
     render() {
-        const {current, total} = this.props;
+        const {current, total, colour='bg-blue'} = this.props;
 
         const currentValue = ((current - 1) / total) * 100;
         const styleWidth = `${currentValue}%`;
         console.log(styleWidth);
 
+        const progressBarClass = `${colour} br-pill h1 shadow-1`;
+
         return (
-            <div className="">
-                <div
-                    className="progress center"
-                    role="progressbar"
-                    aria-valuenow={currentValue}
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                    style={{width: styleWidth}}
-                >
-                </div>
-                <style jsx>{`
-                .progress {
-                    background: #eee;
-                    border-radius: 13px;
-                    height: 20px;
-                    width: 300px;
-                    padding: 0px;
-                }
-                .progress:after {
-                    content: '';
-                    display: block;
-                    background: orange;
-                    width: 50%;
-                    height: 100%;
-                    border-radius: 9px;
-                }
-                `}</style>
+            <div className="bg-moon-gray br-pill h1 overflow-y-hidden center w-50">
+                <div className={progressBarClass} style={{width: styleWidth}}></div>
+                <ProgressBarMark filled={true} />
             </div>
         );
     }

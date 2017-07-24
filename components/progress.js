@@ -9,6 +9,7 @@ export default ({current, total}) => (
         <ProgressBar
             current={current}
             total={total}
+            colour='bg-green'
         />
     </div>
 );
