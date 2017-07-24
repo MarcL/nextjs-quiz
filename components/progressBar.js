@@ -34,9 +34,9 @@ class ProgressBar extends React.Component {
         console.log(styleWidth);
 
         return (
-            <div>
+            <div className="">
                 <div
-                    className="progress"
+                    className="progress center"
                     role="progressbar"
                     aria-valuenow={currentValue}
                     aria-valuemin="0"
