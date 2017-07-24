@@ -15,20 +15,29 @@ class Quiz extends React.Component {
     }
 
     handleAnswer(answerId) {
-        console.log(`Answer : ${answerId}`);
         this.setState({
             answers: [...this.state.answers, answerId],
             currentQuestion: this.state.currentQuestion + 1
         });
     }
     renderQuiz(currentQuestionIndex, totalQuestions) {
-        const {questions} = this.props;
+        const {data: {questions}, data} = this.props;
         const currentQuestion = questions[currentQuestionIndex - 1];
+        const subtitle = currentQuestion.subtitle
+            ? currentQuestion.subtitle
+            : data.subtitle ? data.subtitle : '';
 
         return(
             <div>
-                <Progress current={currentQuestionIndex} total={totalQuestions} />
-                <Question question={currentQuestion} onAnswer={this.handleAnswer} />
+                <Progress
+                    current={currentQuestionIndex}
+                    total={totalQuestions}
+                />
+                <Question
+                    question={currentQuestion}
+                    subtitle={subtitle}
+                    onAnswer={this.handleAnswer}
+                />
             </div>
         );
     }
@@ -42,7 +51,7 @@ class Quiz extends React.Component {
     }
 
     render() {
-        const {title, questions} = this.props;
+        const {data: {title, questions}} = this.props;
         const totalQuestions = questions.length;
         const currentQuestionIndex = this.state.currentQuestion;
         const currentQuestion = questions[currentQuestionIndex - 1];
@@ -52,11 +61,9 @@ class Quiz extends React.Component {
             : this.renderQuiz(currentQuestionIndex, totalQuestions);
 
         return (
-            <div className="quiz">
-                <h2 className="quiz-title">{title}</h2>
-                <div>
-                    {renderComponent}
-                </div>
+            <div id="quiz">
+                <h2 id="quiz-title" className="f2 tc">{title}</h2>
+                {renderComponent}
             </div>
         );
     }

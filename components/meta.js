@@ -5,18 +5,8 @@ export default () => (
     <Head>
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta charSet="utf-8" />
+      <script src="https://use.fontawesome.com/9ce47504fe.js"></script>
+      <link rel="stylesheet" href="https://unpkg.com/tachyons@4.7.0/css/tachyons.min.css"/>
     </Head>
-    <style jsx global>{`
-      body {
-        font-family: SF UI Text, -apple-system, Helvetica, Arial, sans-serif;
-        background: #fff;
-      }
-
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-    `}</style>
   </div>
 );

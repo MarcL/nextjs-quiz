@@ -2,33 +2,12 @@
 import Meta from './meta'
 
 export default ({ children }) => (
-  <div className="main">
+  <div id="main" className="w-75 center">
     <Meta />
     {/*<Header />*/}
 
-    <div className="page">
+    <div className="page avenir">
       { children }
     </div>
-
-    <style jsx>{`
-      .main {
-        width: 85%;
-        margin: auto;
-        padding: 10px 0 0 0;
-      }
-
-      .page {
-        color: #313537;
-        background: #fff;
-        padding: 3px 10px;
-      }
-
-      @media (max-width: 750px) {
-        .main {
-          padding: 0;
-          width: auto;
-        }
-      }
-    `}</style>
   </div>
 );

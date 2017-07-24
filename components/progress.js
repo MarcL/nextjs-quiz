@@ -2,12 +2,13 @@ import ProgressBar from './progressBar';
 
 export default ({current, total}) => (
     <div
-        className="section-progress"
-        style={{
-            height: '60px',
-        }}
+        id="section-progress"
+        className="tc"
     >
-        <p>Part {current} of {total}</p>
-        <ProgressBar current={current} total={total}/>
+        <p className="f4 gray">Part {current} of {total}</p>
+        <ProgressBar
+            current={current}
+            total={total}
+        />
     </div>
 );

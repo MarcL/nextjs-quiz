@@ -20,9 +20,9 @@ class QuestionAnswerContainer extends React.Component {
 
     render() {
         return(
-            <ul className="question">
+            <div className="mw6 center">
                 {this.renderAnswers()}
-            </ul>
+            </div>
         );
     }
 }

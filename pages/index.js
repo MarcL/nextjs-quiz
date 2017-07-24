@@ -1,30 +1,12 @@
 import Page from '../components/page.js';
 import Quiz from '../components/quiz.js';
+import exampleQuestions from '../data/exampleQuestions';
 
 export default class extends React.Component {
 
     static async getInitialProps () {
-        // TODO: Get this from somewhere
-        return {
-            title: 'Earning Potential',
-            questions: [
-                {
-                    title: 'Are you a spender or a saver?',
-                    answers: [
-                        'In the past year, I have always paid my credit card bill in full each month',
-                        'In the past year, I have sometimes held a monthly credit card debt',
-                    ]
-                },
-                {
-                    title: 'Which is more important: freedom or security?',
-                    answers: [
-                        'I\'m currently a full-time employee',
-                        'I\'m currently a full-time employee with a side gig',
-                        'I\'m currently working as a freelancer or am a part-time employee'
-                    ]
-                }
-            ]
-        };
+        // TODO: Assume it'll be asynchronous from a data source
+        return exampleQuestions;
     }
 
     render () {
@@ -32,7 +14,7 @@ export default class extends React.Component {
 
         return(
             <Page>
-               <Quiz title={title} questions={questions} />
+               <Quiz data={this.props} />
             </Page>
         );
     }
