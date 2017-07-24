@@ -1,12 +1,14 @@
 import React from 'react';
 import Progress from './progress';
 import Question from './question';
+import BackButton from './backButton';
 
 class Quiz extends React.Component {
     constructor() {
         super();
 
         this.handleAnswer = this.handleAnswer.bind(this);
+        this.handleBackButton = this.handleBackButton.bind(this);
 
         this.state = {
             answers: [],
@@ -18,6 +20,12 @@ class Quiz extends React.Component {
         this.setState({
             answers: [...this.state.answers, answerId],
             currentQuestion: this.state.currentQuestion + 1
+        });
+    }
+
+    handleBackButton() {
+        this.setState({
+            currentQuestion: this.state.currentQuestion - 1
         });
     }
     renderQuiz(currentQuestionIndex, totalQuestions) {
@@ -60,10 +68,15 @@ class Quiz extends React.Component {
             ? this.renderEndScreen()
             : this.renderQuiz(currentQuestionIndex, totalQuestions);
 
+        const renderBackButton = (currentQuestionIndex > 1)
+            ? <BackButton handleClick={this.handleBackButton} />
+            : '';
+
         return (
             <div id="quiz">
                 <h2 id="quiz-title" className="f2 tc">{title}</h2>
                 {renderComponent}
+                {renderBackButton}
             </div>
         );
     }
