@@ -10,8 +10,6 @@ export default class extends React.Component {
     }
 
     render () {
-        const {title, questions} = this.props;
-
         return(
             <Page>
                <Quiz data={this.props} />

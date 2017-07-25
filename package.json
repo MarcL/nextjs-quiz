@@ -12,6 +12,8 @@
   "author": "Marc Littlemore <marc.littlemore@gmail.com> (http://www.marclittlemore.com)",
   "license": "MIT",
   "dependencies": {
+    "ent": "~2.2.0",
+    "isomorphic-fetch": "~2.2.1",
     "next": "~3.0.1-beta.18",
     "react": "~15.6.1",
     "react-dom": "~15.6.1"
