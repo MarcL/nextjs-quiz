@@ -2,6 +2,7 @@ import React from 'react';
 import Progress from './progress';
 import Question from './question';
 import BackButton from './backButton';
+import QuizResults from './quizResults';
 
 class Quiz extends React.Component {
     constructor() {
@@ -28,6 +29,7 @@ class Quiz extends React.Component {
             currentQuestion: this.state.currentQuestion - 1
         });
     }
+
     renderQuiz(currentQuestionIndex, totalQuestions) {
         const {data: {questions}, data} = this.props;
         const currentQuestion = questions[currentQuestionIndex - 1];
@@ -50,11 +52,9 @@ class Quiz extends React.Component {
         );
     }
 
-    renderEndScreen() {
+    renderQuizResults() {
         return(
-            <div>
-                <h3>Quiz has ended</h3>
-            </div>
+            <QuizResults data={this.props.data} answers={this.state.answers}/>
         );
     }
 
@@ -65,7 +65,7 @@ class Quiz extends React.Component {
         const currentQuestion = questions[currentQuestionIndex - 1];
 
         const renderComponent = (currentQuestionIndex > totalQuestions)
-            ? this.renderEndScreen()
+            ? this.renderQuizResults()
             : this.renderQuiz(currentQuestionIndex, totalQuestions);
 
         const renderBackButton = (currentQuestionIndex > 1)
