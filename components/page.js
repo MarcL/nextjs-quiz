@@ -1,13 +1,15 @@
-// import Header from './header'
+import Navigation from './navigation'
 import Meta from './meta'
 
 export default ({ children }) => (
-  <div id="main" className="w-75 center">
+  <div>
     <Meta />
-    {/*<Header />*/}
+    <Navigation />
 
-    <div className="page avenir">
-      { children }
+    <div id="main" className="w-75 center">
+      <div className="page avenir">
+        { children }
+      </div>
     </div>
   </div>
 );
