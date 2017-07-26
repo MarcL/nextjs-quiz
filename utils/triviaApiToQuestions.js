@@ -28,7 +28,8 @@ const createQuestion = (triviaQuestion) => {
 
     return {
         title: triviaQuestion.question,
-        answers: fisherYatesShuffle(answers)
+        answers: fisherYatesShuffle(answers),
+        correctAnswer: triviaQuestion['correct_answer']
     };
 };
 
