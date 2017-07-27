@@ -27,9 +27,9 @@ const createQuestion = (triviaQuestion) => {
         });
 
     return {
-        title: triviaQuestion.question,
+        title: decode(triviaQuestion.question),
         answers: fisherYatesShuffle(answers),
-        correctAnswer: triviaQuestion['correct_answer']
+        correctAnswer: decode(triviaQuestion['correct_answer'])
     };
 };
 
